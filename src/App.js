@@ -1,4 +1,5 @@
-
+import { LeftSide } from "./components/LeftSide"
+import { RightSide } from "./components/RightSide"
 import './App.css';
 
 function App() {
@@ -22,7 +23,8 @@ function App() {
 
   return (
     <div className="App">
-
+      <LeftSide />
+      <RightSide />
     </div>
   );
 }
