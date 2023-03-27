@@ -1,8 +1,28 @@
+import { useState, useEffect } from "react";
 import { LeftSide } from "./components/LeftSide"
 import { RightSide } from "./components/RightSide"
 import './App.css';
 
 function App() {
+  const [imageIndex, setImageIndex] = useState(0);
+  const [topText, setTopText] = useState("")
+  const [bottomText, setBottomText] = useState("")
+  const [memeArray, setMemeArray] = useState([])
+
+  useEffect(() => {
+    const fetchMemes = async () => {
+      try {
+        const apiRes = await fetch('https://api.imgflip.com/get_memes');
+        if (!apiRes.success) throw Error('Request failed');
+        const data = await apiRes.json();
+        setMemeArray(data.data.memes);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchMemes()
+  }, [])
+
   /* Level 1 */
   /* fetch from URL: https://api.imgflip.com/get_memes mit useState speichern und mit useEffect herunterladen */
   /* res.data.memes[0] first meme */
@@ -24,8 +44,8 @@ function App() {
   return (
     <div className="App">
       <h1>Make your MEME</h1>
-      <LeftSide />
-      <RightSide />
+      <LeftSide memeArray={memeArray} setMemeArray={setMemeArray} imageIndex={imageIndex} setImageIndex={setImageIndex} topText={topText} bottomText={bottomText} />
+      <RightSide memeArray={memeArray} imageIndex={imageIndex} setImageIndex={setImageIndex} topText={topText} setTopText={setTopText} bottomText={bottomText} setBottomText={setBottomText} />
     </div>
   );
 }

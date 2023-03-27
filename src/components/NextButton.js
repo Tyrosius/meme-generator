@@ -1,1 +1,1 @@
-export const NextButton = () => { }
+export const NextButton = ({ imageIndex }, { setImageIndex }, { memeCount }) => { }

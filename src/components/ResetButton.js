@@ -1,3 +1,3 @@
-export const ResetButton = () => {
+export const ResetButton = ({ setImageIndex }, { setTopText }, { setBottomText }) => {
 
 }

@@ -3,15 +3,16 @@ import { NextButton } from "./NextButton"
 import { RandomButton } from "./RandomButton"
 import { UploadButton } from "./UploadButton"
 
-export const PicControll = () => {
+export const PicControll = ({ memeArray }, { setMemeArray }, { imageIndex }, { setImageIndex }) => {
+    const memeCount = memeArray.length()
     return (
         <>
             <div>
-                <BackButton />
-                <RandomButton />
-                <NextButton />
+                <BackButton imageIndex={imageIndex} setImageIndex={setImageIndex} />
+                <RandomButton setImageIndex={setImageIndex} memeCount={memeCount} />
+                <NextButton imageIndex={imageIndex} setImageIndex={setImageIndex} memeCount={memeCount} />
             </div>
-            <UploadButton />
+            <UploadButton setMemeArray={setMemeArray} />
         </>
     )
 }

@@ -1,1 +1,1 @@
-export const BackButton = () => { }
+export const BackButton = ({ imageIndex }, { setImageIndex }) => { }

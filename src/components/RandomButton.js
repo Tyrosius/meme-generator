@@ -1,1 +1,1 @@
-export const RandomButton = () => { }
+export const RandomButton = ({ setImageIndex }, { memeCount }) => { }
