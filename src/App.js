@@ -23,6 +23,7 @@ function App() {
 
   return (
     <div className="App">
+      <h1>Make your MEME</h1>
       <LeftSide />
       <RightSide />
     </div>

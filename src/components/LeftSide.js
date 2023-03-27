@@ -1,4 +1,4 @@
-import { Preview } from "./preview"
+import { Preview } from "./Preview"
 import { PicControll } from "./PicControl"
 
 export const LeftSide = () => {
