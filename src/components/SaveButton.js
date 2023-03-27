@@ -1,3 +1,4 @@
-export const SaveButton = ({ memeArray }, { imageIndex }, { topText }, { bottomText }) => {
+export const SaveButton = ({ memeArray, imageIndex, topText, bottomText }) => {
+    return (<></>)
 
 }

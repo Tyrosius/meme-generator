@@ -7,20 +7,21 @@ function App() {
   const [imageIndex, setImageIndex] = useState(0);
   const [topText, setTopText] = useState("")
   const [bottomText, setBottomText] = useState("")
-  const [memeArray, setMemeArray] = useState([])
+  const [memeArray, setMemeArray] = useState()
 
   useEffect(() => {
     const fetchMemes = async () => {
       try {
         const apiRes = await fetch('https://api.imgflip.com/get_memes');
-        if (!apiRes.success) throw Error('Request failed');
+        /* if (!apiRes.success) throw Error('Request failed'); */
         const data = await apiRes.json();
+        console.log(data)
         setMemeArray(data.data.memes);
       } catch (err) {
         console.log(err);
       }
     };
-    fetchMemes()
+    fetchMemes();
   }, [])
 
   /* Level 1 */
@@ -44,9 +45,11 @@ function App() {
   return (
     <div className="App">
       <h1>Make your MEME</h1>
-      <LeftSide memeArray={memeArray} setMemeArray={setMemeArray} imageIndex={imageIndex} setImageIndex={setImageIndex} topText={topText} bottomText={bottomText} />
-      <RightSide memeArray={memeArray} imageIndex={imageIndex} setImageIndex={setImageIndex} topText={topText} setTopText={setTopText} bottomText={bottomText} setBottomText={setBottomText} />
-    </div>
+      <div id="mainContainer">
+        {memeArray && <LeftSide memeArray={memeArray} setMemeArray={setMemeArray} imageIndex={imageIndex} setImageIndex={setImageIndex} topText={topText} bottomText={bottomText} />}
+        {memeArray && <RightSide memeArray={memeArray} imageIndex={imageIndex} setImageIndex={setImageIndex} topText={topText} setTopText={setTopText} bottomText={bottomText} setBottomText={setBottomText} />}
+      </div>
+    </div >
   );
 }
 

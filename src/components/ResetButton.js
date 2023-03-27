@@ -1,3 +1,4 @@
-export const ResetButton = ({ setImageIndex }, { setTopText }, { setBottomText }) => {
+export const ResetButton = ({ setImageIndex, setTopText, setBottomText }) => {
+    return (<></>)
 
 }

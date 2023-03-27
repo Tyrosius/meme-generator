@@ -3,8 +3,8 @@ import { NextButton } from "./NextButton"
 import { RandomButton } from "./RandomButton"
 import { UploadButton } from "./UploadButton"
 
-export const PicControll = ({ memeArray }, { setMemeArray }, { imageIndex }, { setImageIndex }) => {
-    const memeCount = memeArray.length()
+export const PicControll = ({ memeArray, setMemeArray, imageIndex, setImageIndex }) => {
+    const memeCount = memeArray.length
     return (
         <>
             <div>

@@ -1,1 +1,1 @@
-export const UploadButton = ({ setMemeArray }) => { }
+export const UploadButton = ({ setMemeArray }) => { return (<></>) }
